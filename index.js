@@ -53,8 +53,4 @@ const exportComponentAsPDF = (node, fileName = 'component.pdf', backgroundColor 
     exportComponent(node, fileName, backgroundColor, type);
 };
 
-module.exports = { 
-    exportComponentAsJPEG, 
-    exportComponentAsPDF, 
-    exportComponentAsPNG 
-};
+export { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG };
