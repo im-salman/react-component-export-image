@@ -2,7 +2,7 @@
 
 ## Introduction
 
-> react-component-export-image
+> Export component as jpeg, png or pdf
 
 ## Code Samples
 
