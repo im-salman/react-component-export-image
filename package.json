@@ -1,0 +1,31 @@
+{
+  "name": "react-component-export-image",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salman-monetate/react-component-export-image.git"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "export",
+    "png",
+    "jpeg",
+    "pdf"
+  ],
+  "author": "Salman Siddiqui",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salman-monetate/react-component-export-image/issues"
+  },
+  "homepage": "https://github.com/salman-monetate/react-component-export-image#readme",
+  "dependencies": {
+    "html2canvas": "^1.0.0-rc.5",
+    "jspdf": "^1.5.3"
+  }
+}
