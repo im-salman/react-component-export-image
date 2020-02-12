@@ -1,6 +1,12 @@
-# Usage
+# react-component-export-image
 
-```
+## Introduction
+
+> react-component-export-image
+
+## Code Samples
+
+ ```
 import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from "react-component-export-image";
 import React from "react";
 
@@ -29,3 +35,10 @@ class MyComponent extends React.Component {
 
 ```
 
+## Installation
+
+```
+npm i react-component-export-image
+or
+yarn add react-component-export-image
+```
