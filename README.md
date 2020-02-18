@@ -6,6 +6,7 @@
 
 ## Code Samples
 
+## Component
  ```
 import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from "react-component-export-image";
 import React from "react";
@@ -38,7 +39,7 @@ export default class MyComponent extends React.Component {
 }
 
 ```
-
+### Function component
 ```
 import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from "react-component-export-image";
 import React, { useRef } from "react";
