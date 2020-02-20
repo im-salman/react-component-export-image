@@ -7,7 +7,10 @@ const fileType = {
     JPEG: 'image/jpeg',
     PDF: 'application/pdf'
 };
-
+/**
+ * @param  {string} uri
+ * @param  {string} filename
+ */
 const saveAs = (uri, filename) => {
     const link = document.createElement('a');
 
@@ -22,6 +25,12 @@ const saveAs = (uri, filename) => {
     }
 };
 
+/**
+ * @param  {React.RefObject} node
+ * @param  {string} fileName
+ * @param  {string} backgroundColor
+ * @param  {string} type
+ */
 const exportComponent = (node, fileName, backgroundColor, type) => {
     const element = ReactDOM.findDOMNode(node.current);
     return html2canvas(element, {
@@ -40,15 +49,30 @@ const exportComponent = (node, fileName, backgroundColor, type) => {
         }
     });
 };
-
+/**
+ * @param  {React.RefObject} node
+ * @param  {string} fileName='component.png'
+ * @param  {string} backgroundColor=null
+ * @param  {string} type=fileType.PNG
+ */
 const exportComponentAsPNG = (node, fileName = 'component.png', backgroundColor = null, type = fileType.PNG) => {
     exportComponent(node, fileName, backgroundColor, type);
 };
-
+/**
+ * @param  {React.RefObject} node
+ * @param  {string} fileName='component.jpeg'
+ * @param  {string} backgroundColor=null
+ * @param  {string} type=fileType.JPEG
+ */
 const exportComponentAsJPEG = (node, fileName = 'component.jpeg', backgroundColor = null, type = fileType.JPEG) => {
     exportComponent(node, fileName, backgroundColor, type);
 };
-
+/**
+ * @param  {React.RefObject} node
+ * @param  {string} fileName='component.pdf'
+ * @param  {string} backgroundColor=null
+ * @param  {string} type=fileType.PDF
+ */
 const exportComponentAsPDF = (node, fileName = 'component.pdf', backgroundColor = null, type = fileType.PDF) => {
     exportComponent(node, fileName, backgroundColor, type);
 };
