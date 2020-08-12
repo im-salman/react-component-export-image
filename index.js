@@ -56,7 +56,7 @@ const exportComponent = (node, fileName, backgroundColor, type) => {
  * @param  {string} type=fileType.PNG
  */
 const exportComponentAsPNG = (node, fileName = 'component.png', backgroundColor = null, type = fileType.PNG) => {
-    exportComponent(node, fileName, backgroundColor, type);
+    return exportComponent(node, fileName, backgroundColor, type);
 };
 /**
  * @param  {React.RefObject} node
@@ -65,7 +65,7 @@ const exportComponentAsPNG = (node, fileName = 'component.png', backgroundColor 
  * @param  {string} type=fileType.JPEG
  */
 const exportComponentAsJPEG = (node, fileName = 'component.jpeg', backgroundColor = null, type = fileType.JPEG) => {
-    exportComponent(node, fileName, backgroundColor, type);
+    return exportComponent(node, fileName, backgroundColor, type);
 };
 /**
  * @param  {React.RefObject} node
@@ -74,7 +74,7 @@ const exportComponentAsJPEG = (node, fileName = 'component.jpeg', backgroundColo
  * @param  {string} type=fileType.PDF
  */
 const exportComponentAsPDF = (node, fileName = 'component.pdf', backgroundColor = null, type = fileType.PDF) => {
-    exportComponent(node, fileName, backgroundColor, type);
+    return exportComponent(node, fileName, backgroundColor, type);
 };
 
 export { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG };
