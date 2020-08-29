@@ -7,7 +7,7 @@
 ## Code Samples
 
 ### Component
- ```
+ ```javascript
 import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from "react-component-export-image";
 import React from "react";
 class ComponentToPrint extends React.Component {
@@ -40,7 +40,7 @@ export default class MyComponent extends React.Component {
 
 ```
 ### Function component
-```
+```javascript
 import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from "react-component-export-image";
 import React, { useRef } from "react";
 
@@ -70,7 +70,7 @@ export default MyComponent;
 
 ## Installation
 
-```
+```bash
 npm i react-component-export-image
 or
 yarn add react-component-export-image
