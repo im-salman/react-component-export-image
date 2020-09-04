@@ -7,9 +7,10 @@
 ## Code Samples
 
 ### Component
- ```javascript
-import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from "react-component-export-image";
-import React from "react";
+ ```jsx
+import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from 'react-component-export-image';
+import React from 'react';
+
 class ComponentToPrint extends React.Component {
   render() {
     return <div>Hello World</div>;
@@ -23,47 +24,49 @@ export default class MyComponent extends React.Component {
 
   render() {
     return (
-    <React.Fragment>
+      <React.Fragment>
         <ComponentToPrint ref={this.componentRef} />
         <button onClick={() => exportComponentAsJPEG(this.componentRef)}>
-            Export As JPEG
+          Export As JPEG
         </button>
         <button onClick={() => exportComponentAsPDF(this.componentRef)}>
-            Export As PDF
+          Export As PDF
         </button>
         <button onClick={() => exportComponentAsPNG(this.componentRef)}>
-            Export As PNG
+          Export As PNG
         </button>
-    </React.Fragment>);
+      </React.Fragment>
+    );
   }
 }
-
 ```
 ### Function component
-```javascript
-import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from "react-component-export-image";
-import React, { useRef } from "react";
+```jsx
+import { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG } from 'react-component-export-image';
+import React, { useRef } from 'react';
 
-const ComponentToPrint = React.forwardRef((props, ref) => ( 
-    <div ref={ref}>Hello World</div>));
+const ComponentToPrint = React.forwardRef((props, ref) => (
+  <div ref={ref}>Hello World</div>
+));
 
 const MyComponent = () => {
   const componentRef = useRef();
 
   return (
-  <React.Fragment>
+    <React.Fragment>
       <ComponentToPrint ref={componentRef} />
       <button onClick={() => exportComponentAsJPEG(componentRef)}>
-          Export As JPEG
+        Export As JPEG
       </button>
       <button onClick={() => exportComponentAsPDF(componentRef)}>
-          Export As PDF
+        Export As PDF
       </button>
       <button onClick={() => exportComponentAsPNG(componentRef)}>
-          Export As PNG
+        Export As PNG
       </button>
-  </React.Fragment>);
-}
+    </React.Fragment>
+  );
+};
 
 export default MyComponent;
 ```
