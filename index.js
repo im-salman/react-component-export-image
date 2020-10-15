@@ -30,13 +30,15 @@ const saveAs = (uri, filename) => {
  * @param  {string} fileName
  * @param  {string} backgroundColor
  * @param  {string} type
+ * @param  {object} options=null
  */
-const exportComponent = (node, fileName, backgroundColor, type) => {
+const exportComponent = (node, fileName, backgroundColor, type, options) => {
     const element = ReactDOM.findDOMNode(node.current);
     return html2canvas(element, {
+        ...options,
         backgroundColor: backgroundColor,
         scrollY: -window.scrollY,
-        useCORS: true,
+        useCORS: true
     }).then(canvas => {
         if (type === fileType.PDF) {
             const pdf = canvas.width > canvas.height
@@ -54,27 +56,30 @@ const exportComponent = (node, fileName, backgroundColor, type) => {
  * @param  {string} fileName='component.png'
  * @param  {string} backgroundColor=null
  * @param  {string} type=fileType.PNG
+ * @param  {object} options=null
  */
-const exportComponentAsPNG = (node, fileName = 'component.png', backgroundColor = null, type = fileType.PNG) => {
-    return exportComponent(node, fileName, backgroundColor, type);
+const exportComponentAsPNG = (node, fileName = 'component.png', backgroundColor = null, type = fileType.PNG, options = null) => {
+    return exportComponent(node, fileName, backgroundColor, type, options);
 };
 /**
  * @param  {React.RefObject} node
  * @param  {string} fileName='component.jpeg'
  * @param  {string} backgroundColor=null
  * @param  {string} type=fileType.JPEG
+ * @param  {object} options=null
  */
-const exportComponentAsJPEG = (node, fileName = 'component.jpeg', backgroundColor = null, type = fileType.JPEG) => {
-    return exportComponent(node, fileName, backgroundColor, type);
+const exportComponentAsJPEG = (node, fileName = 'component.jpeg', backgroundColor = null, type = fileType.JPEG, options = null) => {
+    return exportComponent(node, fileName, backgroundColor, type, options);
 };
 /**
  * @param  {React.RefObject} node
  * @param  {string} fileName='component.pdf'
  * @param  {string} backgroundColor=null
  * @param  {string} type=fileType.PDF
+ * @param  {object} options=null
  */
-const exportComponentAsPDF = (node, fileName = 'component.pdf', backgroundColor = null, type = fileType.PDF) => {
-    return exportComponent(node, fileName, backgroundColor, type);
+const exportComponentAsPDF = (node, fileName = 'component.pdf', backgroundColor = null, type = fileType.PDF, options = null) => {
+    return exportComponent(node, fileName, backgroundColor, type, options);
 };
 
 export { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG };

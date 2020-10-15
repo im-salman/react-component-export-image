@@ -3,6 +3,7 @@
 ## Introduction
 
 > Export component as jpeg, png or pdf
+>  Each export expect a {React.RefObject} node, optional fileName, optional backgroundColor and optional options object which you wish to pass it to html2Canvas 
 
 ## Code Samples
 
