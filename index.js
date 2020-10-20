@@ -35,10 +35,10 @@ const saveAs = (uri, filename) => {
 const exportComponent = (node, fileName, backgroundColor, type, options) => {
     const element = ReactDOM.findDOMNode(node.current);
     return html2canvas(element, {
-        ...options,
         backgroundColor: backgroundColor,
         scrollY: -window.scrollY,
-        useCORS: true
+        useCORS: true,
+        ...options
     }).then(canvas => {
         if (type === fileType.PDF) {
             const pdf = canvas.width > canvas.height
