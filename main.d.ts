@@ -1,9 +1,9 @@
 declare module 'react-component-export-image' {
     import { Options } from 'html2canvas';
-    import { RefObject } from 'react';
+    import { RefObject, ReactInstance } from 'react';
 
     type ExportComponentArgs = [
-        node: RefObject<HTMLAllCollection>,
+        node: RefObject<ReactInstance>,
         fileName?: string,
         backgroundColor?: string,
         type?: string,
