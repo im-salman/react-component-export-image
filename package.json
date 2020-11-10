@@ -3,6 +3,7 @@
   "version": "0.1.9",
   "description": "export component as jpeg, png, pdf",
   "main": "dist/index.js",
+  "types": "main.d.ts",
   "scripts": {
     "build": "webpack --mode production",
     "build:analyze": "webpack --profile --json > webpack-stats.json && webpack-bundle-analyzer webpack-stats.json ./dist"
@@ -26,7 +27,7 @@
   },
   "homepage": "https://github.com/salman-monetate/react-component-export-image#readme",
   "dependencies": {
-    "html2canvas": "^1.0.0-rc.5",
+    "html2canvas": "^1.0.0-rc.7",
     "jspdf": "^1.5.3"
   },
   "devDependencies": {
