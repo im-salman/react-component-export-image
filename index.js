@@ -32,7 +32,21 @@ const saveAs = (uri, filename) => {
  * @param  {string} type
  * @param  {object} options=null
  */
-const exportComponent = (node, fileName, backgroundColor, type, options) => {
+
+const getPDF = (type, pdfOrientation) => {
+    if(pdfOrientation === 'l') {
+        return new JsPDF('l', 'mm', [canvas.width, canvas.height])
+    } else if(pdfOrientation === 'p') {
+        return new JsPDF('p', 'mm', [canvas.height, canvas.width]);
+    } else {
+        return canvas.width > canvas.height
+        ? new JsPDF('l', 'mm', [canvas.width, canvas.height])
+        : new JsPDF('p', 'mm', [canvas.height, canvas.width]);
+    }
+    
+}
+
+const exportComponent = (node, fileName, backgroundColor, type, options, pdfOrientation = '') => {
     const element = ReactDOM.findDOMNode(node.current);
     return html2canvas(element, {
         backgroundColor: backgroundColor,
@@ -41,9 +55,7 @@ const exportComponent = (node, fileName, backgroundColor, type, options) => {
         ...options
     }).then(canvas => {
         if (type === fileType.PDF) {
-            const pdf = canvas.width > canvas.height
-                ? new JsPDF('l', 'mm', [canvas.width, canvas.height])
-                : new JsPDF('p', 'mm', [canvas.height, canvas.width]);
+            const pdf = getPDF(type, pdfOrientation)
             pdf.addImage(canvas.toDataURL(fileType.PNG, 1.0), 'PNG', 0, 0);
             pdf.save(fileName);
         } else {
@@ -77,9 +89,10 @@ const exportComponentAsJPEG = (node, fileName = 'component.jpeg', backgroundColo
  * @param  {string} backgroundColor=null
  * @param  {string} type=fileType.PDF
  * @param  {object} options=null
+ * @param  {string} pdfOrientation=''
  */
-const exportComponentAsPDF = (node, fileName = 'component.pdf', backgroundColor = null, type = fileType.PDF, options = null) => {
-    return exportComponent(node, fileName, backgroundColor, type, options);
+const exportComponentAsPDF = (node, fileName = 'component.pdf', backgroundColor = null, type = fileType.PDF, options = null, pdfOrientation = '') => {
+    return exportComponent(node, fileName, backgroundColor, type, options, pdfOrientation);
 };
 
 export { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG };

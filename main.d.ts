@@ -8,6 +8,7 @@ declare module 'react-component-export-image' {
         backgroundColor?: string,
         type?: string,
         options?: Partial<Options>,
+        pdfOrientation?: string,
     ];
 
     type ExportComponentReturn = Promise<(canvas: HTMLCanvasElement) => void>;
