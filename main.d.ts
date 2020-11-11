@@ -3,8 +3,8 @@ declare module 'react-component-export-image' {
     import { RefObject, ReactInstance } from 'react';
 
     type PDFOptions = {
-        x: string;
-        y: string;
+        x: number;
+        y: number;
         orientation: string;
     }
 
