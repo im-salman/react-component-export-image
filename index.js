@@ -33,8 +33,11 @@ const saveAs = (uri, filename) => {
  * @param  {object} html2CanvasOptions={}
  */
 
-const getPDF = (canvas, {orientation, unit = 'mm', pdfFormat = 'a4'}) => {
-    const o = orientation || canvas.width > canvas.height ? 'l' : 'p'
+const getPDF = (canvas, {w, h, orientation, unit = 'mm', pdfFormat}) => {
+    const width = w || canvas.width
+    const height = h || canvas.height
+    const o = orientation || width > height ? 'l' : 'p'
+    const format = pdfFormat || width > height ? [width, height] : [height, width]
 
     return new JsPDF(o, unit, pdfFormat)
 }
