@@ -5,6 +5,8 @@ declare module 'react-component-export-image' {
     type PDFOptions = {
         x: number;
         y: number;
+        w: number;
+        h: number;
         orientation: string;
     }
 
