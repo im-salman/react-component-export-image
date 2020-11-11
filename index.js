@@ -28,15 +28,14 @@ const saveAs = (uri, filename) => {
 /**
  * @param  {React.RefObject} node
  * @param  {string} fileName
- * @param  {string} backgroundColor
  * @param  {string} type
- * @param  {object} options=null
+ * @param  {object} html2CanvasOptions=null
  */
 
-const getPDF = (type, pdfOrientation) => {
-    if(pdfOrientation === 'l') {
+const getPDF = (type, {x, y, orientation}) => {
+    if(orientation === 'l') {
         return new JsPDF('l', 'mm', [canvas.width, canvas.height])
-    } else if(pdfOrientation === 'p') {
+    } else if(orientation === 'p') {
         return new JsPDF('p', 'mm', [canvas.height, canvas.width]);
     } else {
         return canvas.width > canvas.height
@@ -46,16 +45,19 @@ const getPDF = (type, pdfOrientation) => {
     
 }
 
-const exportComponent = (node, fileName, backgroundColor, type, options, pdfOrientation = '') => {
+const exportComponent = ({node, fileName, type, html2CanvasOptions, pdfOptions}) => {
+    if(!node.current) {
+        throw new Error("'node' must be a RefObject")
+    }
     const element = ReactDOM.findDOMNode(node.current);
     return html2canvas(element, {
         backgroundColor: backgroundColor,
         scrollY: -window.scrollY,
         useCORS: true,
-        ...options
+        ...html2CanvasOptions
     }).then(canvas => {
         if (type === fileType.PDF) {
-            const pdf = getPDF(type, pdfOrientation)
+            const pdf = getPDF(type, pdfOptions)
             pdf.addImage(canvas.toDataURL(fileType.PNG, 1.0), 'PNG', 0, 0);
             pdf.save(fileName);
         } else {
@@ -66,33 +68,30 @@ const exportComponent = (node, fileName, backgroundColor, type, options, pdfOrie
 /**
  * @param  {React.RefObject} node
  * @param  {string} fileName='component.png'
- * @param  {string} backgroundColor=null
  * @param  {string} type=fileType.PNG
- * @param  {object} options=null
+ * @param  {object} html2CanvasOptions=null
  */
-const exportComponentAsPNG = (node, fileName = 'component.png', backgroundColor = null, type = fileType.PNG, options = null) => {
-    return exportComponent(node, fileName, backgroundColor, type, options);
+const exportComponentAsPNG = ({node, fileName = 'component.png', type = fileType.PNG, html2CanvasOptions = null}) => {
+    return exportComponent({node, fileName, type, html2CanvasOptions});
 };
 /**
  * @param  {React.RefObject} node
  * @param  {string} fileName='component.jpeg'
- * @param  {string} backgroundColor=null
  * @param  {string} type=fileType.JPEG
- * @param  {object} options=null
+ * @param  {object} html2CanvasOptions=null
  */
-const exportComponentAsJPEG = (node, fileName = 'component.jpeg', backgroundColor = null, type = fileType.JPEG, options = null) => {
-    return exportComponent(node, fileName, backgroundColor, type, options);
+const exportComponentAsJPEG = ({node, fileName = 'component.jpg', type = fileType.JPG, html2CanvasOptions = null}) => {
+    return exportComponent({node, fileName, type, html2CanvasOptions});
 };
 /**
  * @param  {React.RefObject} node
  * @param  {string} fileName='component.pdf'
- * @param  {string} backgroundColor=null
  * @param  {string} type=fileType.PDF
- * @param  {object} options=null
- * @param  {string} pdfOrientation=''
+ * @param  {object} html2CanvasOptions=null
+ * @param  {string} pdfOptions=null
  */
-const exportComponentAsPDF = (node, fileName = 'component.pdf', backgroundColor = null, type = fileType.PDF, options = null, pdfOrientation = '') => {
-    return exportComponent(node, fileName, backgroundColor, type, options, pdfOrientation);
+const exportComponentAsPDF = ({node, fileName = 'component.pdf', type = fileType.PDF, html2CanvasOptions = null, pdfOptions = null}) => {
+    return exportComponent({node, fileName, type, html2CanvasOptions, pdfOptions});
 };
 
 export { exportComponentAsJPEG, exportComponentAsPDF, exportComponentAsPNG };
