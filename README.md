@@ -13,16 +13,16 @@ orientation = 'p' (portrait) OR 'l' (landscape)
 
 ## How to Upgrade
 The previous way of using an export looked like this: 
-    exportComponentAsJPEG(node, fileName, type, backgroundColor, options)
+> exportComponentAsJPEG(node, fileName, type, backgroundColor, options)
 
 The new way: pass an object with only the fields you need. 
 - backgroundColor is no longer accepted in this main object, but is accepted in the "html2CanvasOptions" object, which is passed directly to html2canvas
 
-exportComponentAsJPEG({node, fileName, type, html2CanvasOptions})
+> exportComponentAsJPEG({node, fileName, type, html2CanvasOptions})
 
 - exportComponentAsPDF also accepts an additional pdfOptions object (see introduction)
 
-exportComponentAsPDF({node, fileName, type, html2CanvasOptions, pdfOptions})
+> exportComponentAsPDF({node, fileName, type, html2CanvasOptions, pdfOptions})
 
 ## Code Samples
 
