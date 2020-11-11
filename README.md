@@ -17,12 +17,13 @@ The previous way of using an export looked like this:
 
 The new way: pass node & an optional object with only the fields you need. 
 - backgroundColor is no longer accepted in this main object, but is accepted in the "html2CanvasOptions" object, which is passed directly to html2canvas
+- type is no longer accepted - JPG will always produce JPG, PNG => PNG, PDF => PDF
 
-> exportComponentAsJPEG(node, {fileName, type, html2CanvasOptions})
+> exportComponentAsJPEG(node, {fileName, html2CanvasOptions})
 
 - exportComponentAsPDF also accepts an additional pdfOptions object (see introduction)
 
-> exportComponentAsPDF(node, {fileName, type, html2CanvasOptions, pdfOptions})
+> exportComponentAsPDF(node, {fileName, html2CanvasOptions, pdfOptions})
 
 ## Code Samples
 

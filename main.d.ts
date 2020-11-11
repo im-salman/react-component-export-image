@@ -10,11 +10,11 @@ declare module 'react-component-export-image' {
 
     type ExportComponentArgs = [
         node: RefObject<ReactInstance>,
-        fileName?: string,
-        backgroundColor?: string,
-        type?: string,
-        html2CanvasOptions?: Partial<Options>,
-        pdfOptions?: Partial<PDFOptions>,
+        params: {
+            fileName?: string,
+            html2CanvasOptions?: Partial<Options>,
+            pdfOptions?: Partial<PDFOptions>,
+        }
     ];
 
     type ExportComponentReturn = Promise<(canvas: HTMLCanvasElement) => void>;
