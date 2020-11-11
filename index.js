@@ -60,7 +60,6 @@ const exportComponent = (node, {
 
     const element = ReactDOM.findDOMNode(node.current);
     return html2canvas(element, {
-        backgroundColor: backgroundColor,
         scrollY: -window.scrollY,
         useCORS: true,
         ...html2CanvasOptions

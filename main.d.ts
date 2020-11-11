@@ -12,7 +12,7 @@ declare module 'react-component-export-image' {
 
     type ExportComponentArgs = [
         node: RefObject<ReactInstance>,
-        params: {
+        params?: {
             fileName?: string,
             html2CanvasOptions?: Partial<Options>,
             pdfOptions?: Partial<PDFOptions>,
