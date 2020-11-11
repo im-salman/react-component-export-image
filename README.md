@@ -5,9 +5,24 @@
 - Export component as jpeg, png or pdf
 - Each export expect a {React.RefObject} node, optional fileName, and optional html2CanvasOptions object which you wish to pass it to html2Canvas
 - exportComponentAsPDF also accepts an optional pdfOptions object with these optional fields {x, y, orientation}
->> x = ???
->> y = ???
->> orientation = 'p' (portrait) OR 'l' (landscape)
+```
+x = ???
+y = ???
+orientation = 'p' (portrait) OR 'l' (landscape)
+```
+
+## How to Upgrade
+The previous way of using an export looked like this: 
+    exportComponentAsJPEG(node, fileName, type, backgroundColor, options)
+
+The new way: pass an object with only the fields you need. 
+- backgroundColor is no longer accepted in this main object, but is accepted in the "html2CanvasOptions" object, which is passed directly to html2canvas
+
+exportComponentAsJPEG({node, fileName, type, html2CanvasOptions})
+
+- exportComponentAsPDF also accepts an additional pdfOptions object (see introduction)
+
+exportComponentAsPDF({node, fileName, type, html2CanvasOptions, pdfOptions})
 
 ## Code Samples
 
