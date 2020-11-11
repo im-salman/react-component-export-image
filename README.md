@@ -4,7 +4,7 @@
 
 - Export component as jpeg, png or pdf
 - Each export expect a {React.RefObject} node, optional fileName, and optional html2CanvasOptions object which you wish to pass it to html2Canvas
-- exportComponentAsPDF also accepts an optional pdfOptions object with these optional fields {w, h, x, y, orientation}
+- exportComponentAsPDF also accepts an optional pdfOptions object with these optional fields {w, h, x, y, unit, orientation}
 ```
 w = 100 (Width in pixels - defaults to the width of the element)
 
@@ -13,6 +13,10 @@ h = 50 (Height in pixels - defaults to the height of the element)
 x = 0 (X Coordinate in pixels against left edge of the page - defaults to 0)
 
 y = 0 (Y Coordinate in pixels against left edge of the page - defaults to 0)
+
+unit = 'px' (Measurement unit (base unit) to be used when coordinates are specified.
+Possible values are "pt" (points), "mm", "cm", "m", "in" or "px". - defaults to 'mm')
+    - if you are trying to get the pdf to fill up the exact space, try setting unit to "px"
 
 orientation = 'p' (portrait) OR 'l' (landscape) - defaults: 
     - landscape if width > height
