@@ -38,13 +38,13 @@ const getPDF = (canvas, {w, h, orientation}) => {
     const height = h || canvas.height
 
     if(orientation === 'l') {
-        return new JsPDF('l', 'mm', [width, height])
+        return new JsPDF('l', 'px', [width, height])
     } else if(orientation === 'p') {
-        return new JsPDF('p', 'mm', [height, width]);
+        return new JsPDF('p', 'px', [height, width]);
     } else {
         return canvas.width > canvas.height
-        ? new JsPDF('l', 'mm', [width, height])
-        : new JsPDF('p', 'mm', [height, width]);
+        ? new JsPDF('l', 'px', [width, height])
+        : new JsPDF('p', 'px', [height, width]);
     }
 }
 
@@ -89,7 +89,7 @@ const exportComponent = (node, {
 const exportComponentAsPNG = (node, {
     fileName = 'component.png',
     html2CanvasOptions = {}
-}) => {
+} = {}) => {
     return exportComponent(node, {
         fileName, 
         type: fileType.PNG, 
@@ -106,7 +106,7 @@ const exportComponentAsPNG = (node, {
 const exportComponentAsJPEG = (node, {
     fileName = 'component.jpg', 
     html2CanvasOptions = {}
-}) => {
+} = {}) => {
     return exportComponent(node, {
         fileName, 
         type: fileType.JPG, 
@@ -125,7 +125,7 @@ const exportComponentAsPDF = (node, {
     fileName = 'component.pdf', 
     html2CanvasOptions = {}, 
     pdfOptions = {}
-}) => {
+} = {}) => {
     return exportComponent(node, {
         fileName, 
         type: fileType.PDF, 
