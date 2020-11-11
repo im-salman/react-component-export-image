@@ -7,7 +7,8 @@ declare module 'react-component-export-image' {
         y: number;
         w: number;
         h: number;
-        orientation: string;
+        unit: "pt" | "mm" | "cm" | "m" | "in" | "px";
+        orientation: 'l' | 'p';
     }
 
     type ExportComponentArgs = [
