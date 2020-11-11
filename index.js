@@ -33,9 +33,9 @@ const saveAs = (uri, filename) => {
  * @param  {object} html2CanvasOptions={}
  */
 
-const getPDF = (canvas, {x, y, orientation}) => {
-    const width = x || canvas.width
-    const height = y || canvas.height
+const getPDF = (canvas, {w, h, orientation}) => {
+    const width = w || canvas.width
+    const height = h || canvas.height
 
     if(orientation === 'l') {
         return new JsPDF('l', 'mm', [width, height])
@@ -67,7 +67,14 @@ const exportComponent = (node, {
     }).then(canvas => {
         if (type === fileType.PDF) {
             const pdf = getPDF(canvas, pdfOptions)
-            pdf.addImage(canvas.toDataURL(fileType.PNG, 1.0), 'PNG', 0, 0);
+            pdf.addImage(
+                canvas.toDataURL(fileType.PNG, 1.0), 
+                'PNG', 
+                pdfOptions.x || 0, 
+                pdfOptions.y || 0,
+                pdfOptions.w || canvas.width,
+                pdfOptions.h || canvas.height
+            );
             pdf.save(fileName);
         } else {
             saveAs(canvas.toDataURL(type, 1.0), fileName);
