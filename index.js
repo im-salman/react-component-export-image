@@ -37,7 +37,7 @@ const getPDF = (canvas, {w, h, orientation, unit = 'mm', pdfFormat}) => {
     const width = w || canvas.width
     const height = h || canvas.height
     const o = orientation || width > height ? 'l' : 'p'
-    const format = pdfFormat || width > height ? [width, height] : [height, width]
+    const format = pdfFormat || 'a4'
 
     return new JsPDF(o, unit, pdfFormat)
 }
