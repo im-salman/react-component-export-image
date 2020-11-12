@@ -1,6 +1,6 @@
 {
   "name": "react-component-export-image",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "export component as jpeg, png, pdf",
   "main": "dist/index.js",
   "types": "main.d.ts",
