@@ -9,6 +9,7 @@ declare module 'react-component-export-image' {
         h: number;
         unit: "pt" | "mm" | "cm" | "m" | "in" | "px";
         orientation: 'l' | 'p';
+        pdfFormat: string | Array<number>;
     }
 
     type ExportComponentArgs = [

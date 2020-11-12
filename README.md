@@ -4,7 +4,7 @@
 
 - Export component as jpeg, png or pdf
 - Each export expect a {React.RefObject} node, optional fileName, and optional html2CanvasOptions object which you wish to pass it to html2Canvas
-- exportComponentAsPDF also accepts an optional pdfOptions object with these optional fields {w, h, x, y, unit, orientation}
+- exportComponentAsPDF also accepts an optional pdfOptions object with these optional fields {w, h, x, y, unit, orientation, pdfFormat}
 ```
 w = 100 (Width in pixels - defaults to the width of the element)
 
@@ -22,6 +22,22 @@ orientation = 'p' (portrait) OR 'l' (landscape) - defaults:
     - landscape if width > height
      or 
     - portrait if height > width
+
+The format of the PDF. Can be:
+
+    a0 - a10
+    b0 - b10
+    c0 - c10
+    dl
+    letter
+    government-letter
+    legal
+    junior-legal
+    ledger
+    tabloid
+    credit-card
+
+    Default is "a4". If you want to use your own format just pass instead of one of the above predefined formats the size as an number-array, e.g. [595.28, 841.89]
 ```
 
 ## How to Upgrade
