@@ -39,7 +39,7 @@ const getPDF = (canvas, {w, h, orientation, unit = 'mm', pdfFormat}) => {
     const o = orientation || width > height ? 'l' : 'p'
     const format = pdfFormat || 'a4'
 
-    return new JsPDF(o, unit, pdfFormat)
+    return new JsPDF(o, unit, format)
 }
 
 const exportComponent = (node, {
