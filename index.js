@@ -8,6 +8,25 @@ const fileType = {
     PDF: 'application/pdf'
 };
 
+const DEFAULT_PNG = {
+    fileName: 'component.png',
+    type: fileType.PNG,
+    html2CanvasOptions: {}
+};
+
+const DEFAULT_JPEG = {
+    fileName:'component.jpg',
+    type: fileType.JPEG,
+    html2CanvasOptions: {}
+};
+
+const DEFAULT_PDF = {
+    fileName: 'component.pdf',
+    type: fileType.PDF,
+    html2CanvasOptions: {}, 
+    pdfOptions: {}
+};
+
 /**
  * @param  {string} uri
  * @param  {string} filename
@@ -80,16 +99,7 @@ const exportComponent = (node, {
  * @param  {string} fileName='component.png'
  * @param  {object} html2CanvasOptions={}
  */
-const exportComponentAsPNG = (node, {
-    fileName = 'component.png',
-    html2CanvasOptions = {}
-} = {}) => {
-    return exportComponent(node, {
-        fileName, 
-        type: fileType.PNG, 
-        html2CanvasOptions
-    });
-};
+const exportComponentAsPNG = (node, parameters = {}) => exportComponent(node, {...DEFAULT_PNG, ...parameters});
 
 /**
  * @param  {React.RefObject} node
@@ -97,16 +107,7 @@ const exportComponentAsPNG = (node, {
  * @param  {string} type=fileType.JPEG
  * @param  {object} html2CanvasOptions={}
  */
-const exportComponentAsJPEG = (node, {
-    fileName = 'component.jpg', 
-    html2CanvasOptions = {}
-} = {}) => {
-    return exportComponent(node, {
-        fileName, 
-        type: fileType.JPG, 
-        html2CanvasOptions
-    });
-};
+const exportComponentAsJPEG = (node, parameters = {}) => exportComponent(node, {...DEFAULT_JPEG, ...parameters});
 
 /**
  * @param  {React.RefObject} node
@@ -115,18 +116,7 @@ const exportComponentAsJPEG = (node, {
  * @param  {object} html2CanvasOptions={}
  * @param  {string} pdfOptions={}
  */
-const exportComponentAsPDF = (node, {
-    fileName = 'component.pdf', 
-    html2CanvasOptions = {}, 
-    pdfOptions = {}
-} = {}) => {
-    return exportComponent(node, {
-        fileName, 
-        type: fileType.PDF, 
-        html2CanvasOptions, 
-        pdfOptions
-    });
-};
+const exportComponentAsPDF = (node, parameters = {}) => exportComponent(node, {...DEFAULT_PDF, ...parameters});
 
 export { 
     exportComponentAsJPEG,

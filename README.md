@@ -76,13 +76,13 @@ export default class MyComponent extends React.Component {
     return (
       <React.Fragment>
         <ComponentToPrint ref={this.componentRef} />
-        <button onClick={() => exportComponentAsJPEG(node: this.componentRef)}>
+        <button onClick={() => exportComponentAsJPEG(this.componentRef)}>
           Export As JPEG
         </button>
-        <button onClick={() => exportComponentAsPDF(node: this.componentRef)}>
+        <button onClick={() => exportComponentAsPDF(this.componentRef)}>
           Export As PDF
         </button>
-        <button onClick={() => exportComponentAsPNG(node: this.componentRef)}>
+        <button onClick={() => exportComponentAsPNG(this.componentRef)}>
           Export As PNG
         </button>
       </React.Fragment>
@@ -105,13 +105,13 @@ const MyComponent = () => {
   return (
     <React.Fragment>
       <ComponentToPrint ref={componentRef} />
-      <button onClick={() => exportComponentAsJPEG(node: componentRef)}>
+      <button onClick={() => exportComponentAsJPEG(componentRef)}>
         Export As JPEG
       </button>
-      <button onClick={() => exportComponentAsPDF(node: componentRef)}>
+      <button onClick={() => exportComponentAsPDF(componentRef)}>
         Export As PDF
       </button>
-      <button onClick={() => exportComponentAsPNG(node: componentRef)}>
+      <button onClick={() => exportComponentAsPNG(componentRef)}>
         Export As PNG
       </button>
     </React.Fragment>
