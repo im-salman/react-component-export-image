@@ -12,26 +12,26 @@ declare module 'react-component-export-image' {
         pdfFormat: string | Array<number>;
     }
 
-    type ExportComponentArgs = [
-        node: RefObject<ReactInstance>,
-        params?: {
-            fileName?: string,
-            html2CanvasOptions?: Partial<Options>,
-            pdfOptions?: Partial<PDFOptions>,
-        }
-    ];
+    type Params = {
+        fileName?: string,
+        html2CanvasOptions?: Partial<Options>,
+        pdfOptions?: Partial<PDFOptions>,
+    }
 
     type ExportComponentReturn = Promise<(canvas: HTMLCanvasElement) => void>;
 
     export function exportComponentAsJPEG(
-        ...args: ExportComponentArgs
+        node: RefObject<ReactInstance>,
+        params?: Params
     ): ExportComponentReturn;
 
     export function exportComponentAsPDF(
-        ...args: ExportComponentArgs
+        node: RefObject<ReactInstance>,
+        params?: Params
     ): ExportComponentReturn;
 
     export function exportComponentAsPNG(
-        ...args: ExportComponentArgs
+        node: RefObject<ReactInstance>,
+        params?: Params
     ): ExportComponentReturn;
 }
