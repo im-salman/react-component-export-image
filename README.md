@@ -1,5 +1,7 @@
 # react-component-export-image
 
+## Demo [Codesandbox](https://codesandbox.io/s/nostalgic-poincare-7xfrl?file=/src/App.js)
+
 ## Introduction
 
 - Export component as jpeg, png or pdf
