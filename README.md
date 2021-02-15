@@ -7,7 +7,7 @@
 - Export component as jpeg, png or pdf
 - Each export expect a {React.RefObject} node, optional fileName, and optional html2CanvasOptions object which you wish to pass it to html2Canvas
 - exportComponentAsPDF also accepts an optional pdfOptions object with these optional fields {w, h, x, y, unit, orientation, pdfFormat}
-```
+```js
 w = 100 (Width in pixels - defaults to the width of the element)
 
 h = 50 (Height in pixels - defaults to the height of the element)
